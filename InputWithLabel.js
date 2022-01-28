@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, Text, View, TextInput } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default function InputWithLabel(props) {
   return (
@@ -14,8 +14,16 @@ export default function InputWithLabel(props) {
               onChangeText={(val) => { props.onChange(val) }}
               style={styles.input}
               keyboardType="numeric"
-              clearButtonMode="always"
           />
+          {props.value ? <TouchableOpacity
+            style={styles.closeButtonParent}
+            onPress={() => props.onChange('')}
+          >
+            <Image
+              style={styles.closeButton}
+              source={require("./assets/clear.png")}
+            />
+          </TouchableOpacity> : null}
         </View>
     </View>
   );
@@ -36,5 +44,17 @@ const styles = StyleSheet.create({
   },
   col: {
     width: '50%'
+  },
+  closeButton: {
+    height: 20,
+    width: 20,
+  },
+  closeButtonParent: {
+    position: 'absolute',
+    right: 15,
+    top: 21,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 5,
   }
 });
