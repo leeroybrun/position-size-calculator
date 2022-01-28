@@ -97,19 +97,19 @@ export default function App() {
           </View>
           <View style={styles.block}>
             <ResultWithLabel 
-              label={"Max risk ($)"}
-              value={maxRisk} />
+              label={"Max risk"}
+              value={maxRisk+' USD'} />
             <ResultWithLabel 
-              label={"Possible gain ($)"}
-              value={possGain} />
+              label={"Possible gain"}
+              value={possGain+' USD'} />
           </View>
           <View style={styles.resultsBlock}>
             <ResultWithLabel 
               label={"Position size"}
               value={posSize} />
             <ResultWithLabel 
-              label={"Position size ($)"}
-              value={posPrice} />
+              label={"Position size"}
+              value={posPrice+' USD'} />
           </View>
         </View>
         : <Text style={styles.resultPlaceholder}>Please enter values.</Text>
