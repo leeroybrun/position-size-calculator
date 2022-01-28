@@ -26,7 +26,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "startUrl": "/position-size-calculator/?utm_source=web_app_manifest"
     }
   }
 }
