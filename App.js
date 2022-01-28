@@ -9,18 +9,15 @@ import InputWithLabel from './InputWithLabel';
 import ResultWithLabel from './ResultWithLabel';
 
 function inputPersist(key, value, setValue) {
-  const [updated, setUpdated] = useState(false);
-
   function readItem() {
-    AsyncStorage.getItem(key).then(itemValue => setValue(parseFloat(itemValue)));
+    AsyncStorage.getItem(key).then(itemValue => setValue(itemValue));
   }
 
   useEffect(readItem, [key, value]);
 
   function handleChange(input) {
     AsyncStorage.setItem(key, ''+input);
-    setValue(parseFloat(input));
-    setUpdated(true);
+    setValue(input);
   }
 
   return {
@@ -29,54 +26,63 @@ function inputPersist(key, value, setValue) {
   };
 }
 
+function round(num, decimals) {
+  return parseFloat(num.toFixed(decimals));
+}
+
 export default function App() {
-  const [accountSize, setAccountSize] = useState(1000);
-  const [riskPercent, setRiskPercent] = useState(1);
-  const [entryPrice, setEntryPrice] = useState();
-  const [slPrice, setSlPrice] = useState();
-  const [tpPrice, setTpPrice] = useState();
+  const [accountSizeStr, setAccountSizeStr] = useState(1000);
+  const [riskPercentStr, setRiskPercentStr] = useState(1);
+  const [entryPriceStr, setEntryPriceStr] = useState();
+  const [slPriceStr, setSlPriceStr] = useState();
+  const [tpPriceStr, setTpPriceStr] = useState();
+
+  const accountSize = parseFloat(accountSizeStr);
+  const riskPercent = parseFloat(riskPercentStr);
+  const entryPrice = parseFloat(entryPriceStr);
+  const slPrice = parseFloat(slPriceStr);
+  const tpPrice = parseFloat(tpPriceStr);
 
   const tradeType = slPrice < entryPrice ? 'LONG' : 'SHORT';
 
-  const posSize = Math.abs((accountSize * (riskPercent / 100)) / (entryPrice - slPrice));
-  const posPrice = posSize * entryPrice;
+  const posSize = round(Math.abs((accountSize * (riskPercent / 100)) / (entryPrice - slPrice)), 8);
+  const posPrice = round(posSize * entryPrice, 4);
 
-  const maxRisk = Math.abs(entryPrice * posSize - slPrice * posSize);
-  const possGain = Math.abs(tpPrice * posSize - entryPrice * posSize);
-  const riskReward = possGain / maxRisk;
+  const maxRisk = round(Math.abs(entryPrice * posSize - slPrice * posSize), 0);
+  const possGain = round(Math.abs(tpPrice * posSize - entryPrice * posSize), 0);
+  const riskReward = round(possGain / maxRisk, 2);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.block}>
         <InputWithLabel 
           label={"Account size ($)"}
-          {...inputPersist('accountSize', accountSize, setAccountSize)} 
+          {...inputPersist('accountSize', accountSizeStr, setAccountSizeStr)} 
         />
         <InputWithLabel 
           label={"Risk per trade (%)"}
-          value={riskPercent}
-          onChange={setRiskPercent}
+          value={riskPercentStr}
+          onChange={setRiskPercentStr}
         />
         {riskPercent % 1 === 0 && riskPercent >= 1 && riskPercent <= 5 ? <Slider
           min={1}
           max={5}
           value={riskPercent}
-          onChange={setRiskPercent}
+          onChange={setRiskPercentStr}
         /> : null}
       </View>
       <View style={styles.block}>
         <InputWithLabel 
           label={"Entry"}
-          {...inputPersist('entryPrice', entryPrice, setEntryPrice)}
+          {...inputPersist('entryPrice', entryPriceStr, setEntryPriceStr)}
         />
         <InputWithLabel 
           label={"Stop loss"}
-          {...inputPersist('slPrice', slPrice, setSlPrice)}
+          {...inputPersist('slPrice', slPriceStr, setSlPriceStr)}
         />
         <InputWithLabel 
           label={"Take Profit"}
-          {...inputPersist('tpPrice', tpPrice, setTpPrice)}
-          value={tpPrice}
+          {...inputPersist('tpPrice', tpPriceStr, setTpPriceStr)}
         />
       </View>
       {accountSize && riskPercent && entryPrice && slPrice && tpPrice ? 

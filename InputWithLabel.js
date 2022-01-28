@@ -10,8 +10,8 @@ export default function InputWithLabel(props) {
         </View>
         <View style={styles.col}>
           <TextInput
-              value={props.value ? ''+props.value : null}
-              onChangeText={(val) => { props.onChange(parseFloat(val)) }}
+              value={props.value ? ''+props.value : ''}
+              onChangeText={(val) => { props.onChange(val) }}
               style={styles.input}
               keyboardType="numeric"
               clearButtonMode="always"
