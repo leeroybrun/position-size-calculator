@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/position-size-calculator/static/js/app.3873e281.chunk.js",
-    "app.js.map": "/position-size-calculator/static/js/app.3873e281.chunk.js.map",
+    "app.js": "/position-size-calculator/static/js/app.fb95f60c.chunk.js",
+    "app.js.map": "/position-size-calculator/static/js/app.fb95f60c.chunk.js.map",
     "runtime~app.js": "/position-size-calculator/static/js/runtime~app.3db380e2.js",
     "runtime~app.js.map": "/position-size-calculator/static/js/runtime~app.3db380e2.js.map",
     "static/js/2.6e6a7def.chunk.js": "/position-size-calculator/static/js/2.6e6a7def.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime~app.3db380e2.js",
     "static/js/2.6e6a7def.chunk.js",
-    "static/js/app.3873e281.chunk.js"
+    "static/js/app.fb95f60c.chunk.js"
   ]
 }
