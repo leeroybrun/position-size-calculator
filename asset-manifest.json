@@ -1,22 +1,22 @@
 {
   "files": {
-    "app.js": "/position-size-calculator/static/js/app.e35044d2.chunk.js",
-    "app.js.map": "/position-size-calculator/static/js/app.e35044d2.chunk.js.map",
+    "app.js": "/position-size-calculator/static/js/app.2307b3d0.chunk.js",
+    "app.js.map": "/position-size-calculator/static/js/app.2307b3d0.chunk.js.map",
     "runtime~app.js": "/position-size-calculator/static/js/runtime~app.3db380e2.js",
     "runtime~app.js.map": "/position-size-calculator/static/js/runtime~app.3db380e2.js.map",
-    "static/js/2.6e6a7def.chunk.js": "/position-size-calculator/static/js/2.6e6a7def.chunk.js",
-    "static/js/2.6e6a7def.chunk.js.map": "/position-size-calculator/static/js/2.6e6a7def.chunk.js.map",
+    "static/js/2.cc0847ba.chunk.js": "/position-size-calculator/static/js/2.cc0847ba.chunk.js",
+    "static/js/2.cc0847ba.chunk.js.map": "/position-size-calculator/static/js/2.cc0847ba.chunk.js.map",
     "favicon-16.png": "/position-size-calculator/favicon-16.png",
     "favicon-32.png": "/position-size-calculator/favicon-32.png",
     "favicon.ico": "/position-size-calculator/favicon.ico",
     "index.html": "/position-size-calculator/index.html",
     "manifest.json": "/position-size-calculator/manifest.json",
     "serve.json": "/position-size-calculator/serve.json",
-    "static/js/2.6e6a7def.chunk.js.LICENSE.txt": "/position-size-calculator/static/js/2.6e6a7def.chunk.js.LICENSE.txt"
+    "static/js/2.cc0847ba.chunk.js.LICENSE.txt": "/position-size-calculator/static/js/2.cc0847ba.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.3db380e2.js",
-    "static/js/2.6e6a7def.chunk.js",
-    "static/js/app.e35044d2.chunk.js"
+    "static/js/2.cc0847ba.chunk.js",
+    "static/js/app.2307b3d0.chunk.js"
   ]
 }
