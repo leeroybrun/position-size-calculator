@@ -4,7 +4,7 @@
   "lang": "en",
   "name": "position-size-calculator",
   "short_name": "position-size-calculator",
-  "start_url": "/?utm_source=web_app_manifest",
+  "start_url": "/position-size-calculator/?utm_source=web_app_manifest",
   "orientation": "portrait",
   "icons": [
     {
