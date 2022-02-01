@@ -13,7 +13,7 @@ export default function InputWithLabel(props) {
               value={props.value ? ''+props.value : ''}
               onChangeText={(val) => { props.onChange(val) }}
               style={styles.input}
-              keyboardType="numeric"
+              keyboardType="decimal-pad"
           />
           {props.value ? <TouchableOpacity
             style={styles.closeButtonParent}
